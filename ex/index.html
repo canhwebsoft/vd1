@@ -4,7 +4,17 @@
 </head>
 <body>
     <h1>My Theater</h1>
-    <input type="button" value="Add Item" id="butAddItem" />
+	<form id="frm">
+   
+	Id: <input type="text" name="id" id="id" size="25" value=""/><br/>
+	Name: <input type="text" name="name" id="name" size="25" value=""/><br/>
+	AverageRating: <input type="text" name="avgRate" id="avgRate" size="25" value=""/><br/>
+	ReleaseYear: <input type="text" name="releaseYear" id="releaseYear" size="25" value=""/><br/>
+	Url: <input type="text" name="url" id="url" size="25" value=""/><br/>
+	Rating: <input type="text" name="rate" id="rate" size="25" value=""/><br/>
+	 <input type="button" value="Add Item" id="butAddItem" /><br/>
+	
+	</form>
     <div id="mainContainer"></div>
     <script type="text/template" id="tmplt-Movies">
         <ol>

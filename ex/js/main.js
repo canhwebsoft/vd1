@@ -75,17 +75,29 @@ Backbone.history.start();
 
 //This is a hack for demonstration purposes
 $("#butAddItem").click(null, function () {
+	var data = getFormData($("form"));
+	
     var movie = new Theater.Models.Movie(
         {
-            "Id": "BVP3s",
-            "Name": "Lord of the Rings ",
-            "AverageRating": 4.3,
-            "ReleaseYear": 2003,
-            "Url": "http://www.netflix.com/.....",
-            "Rating": "PG-13"
+            "Id": data.id,
+            "Name": data.name,
+            "AverageRating": data.avgRate,
+            "ReleaseYear": data.releaseYear,
+            "Url": data.url,
+            "Rating": data.rate
         }
     );
   
     Theater.movies.add(movie);
     console.log(Theater.movies.length)
 })
+function getFormData($form){
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+}
